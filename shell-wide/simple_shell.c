@@ -16,6 +16,7 @@ buff = malloc(size * sizeof(char));
 	{
 		write(1, "MiShellada$ ", 13);
 		getline(&buff, &size, stdin);
+		printf("%s", buff);
 	}
 	free(buff);
 	return (0);
