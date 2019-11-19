@@ -7,5 +7,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-char **lsh_split_line(char *line);
+char **splitString(char *line);
+char *get_line(void);
 #endif/*SHELL_H*/

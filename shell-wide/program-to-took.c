@@ -3,7 +3,7 @@
 /*#define BUFSIZE 64
 #define LSH_TOK_DELIM ":"*/
 
-char **lsh_split_line(char *arguments)
+char **splitString(char *arguments)
 {
 	#define BUFSIZE 64
 	#define _DELIM_ ":"
@@ -18,7 +18,7 @@ char **lsh_split_line(char *arguments)
 
 	tokens = malloc (bufer_size * sizeof(char*));
 	/*if malloc files exit*/
-	if (!tokens)
+	if (tokens == NULL)
 		return(NULL);
 
 	/*take the line argument and splice it with the delimitors*/
@@ -39,7 +39,7 @@ char **lsh_split_line(char *arguments)
 				tokens = realloc(tokens, bufer_size * sizeof(char *));
 
 				/*if tokens ends*/
-				if (!tokens)
+				if (tokens == NULL)
 						return(NULL);
 		}
 		/*token will be delimited with null*/
