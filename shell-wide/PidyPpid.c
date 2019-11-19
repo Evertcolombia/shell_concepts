@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-
+#include "shell.h"
 /**
  * main - PID
  *
@@ -16,3 +14,4 @@ int main(void)
     printf("child process id :%u\n", my_pid);
     return (a);
 }
+
