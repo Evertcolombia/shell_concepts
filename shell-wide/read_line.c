@@ -10,5 +10,5 @@ char *get_line(void)
                 return (NULL);
         getline(&new_line, &size, stdin);
 
-        return new_line;
+        return (new_line);
 }

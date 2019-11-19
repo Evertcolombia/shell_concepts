@@ -11,5 +11,6 @@
 
 char **splitString(char *line);
 char *get_line(void);
+void printCommand(char **tokens);
 
 #endif/*SHELL_H*/

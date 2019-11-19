@@ -6,7 +6,7 @@
 char **splitString(char *arguments)
 {
 	#define BUFSIZE 64
-	#define _DELIM_ ":"
+	#define _DELIM_ ":  \n"
 
 	/*init a bufsize and a position = 0*/
 	int bufer_size = BUFSIZE, position = 0;
