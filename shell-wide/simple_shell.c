@@ -7,10 +7,10 @@
 
 int main(void)
 {
-char **tokens;
-char *getLine;
-
-int i = 0;
+	char **tokens;
+	char *getLine;
+	int i = 0;
+	
 	while (1)
 	{
 		write(1, "MiShellada$ ", 13);
