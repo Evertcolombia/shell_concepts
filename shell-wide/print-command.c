@@ -10,8 +10,10 @@ void printCommand(char **tokens)
     if (child == -1)
         perror("error");
 
-    if (child == 0)
-        execve(tokens[0], tokens, NULL); /*execute program with the entire path*/
+    /*if (child == 0)
+        execve(tokens[0], tokens, NULL);
     else
-        waitpid(-1, &status, 0); /*wait to end chil proccess*/
+        waitpid(-1, &status, 0);*/
+    child == 0 ? execve(tokens[0], tokens, NULL) :
+        waitpid(-1, &status, 0);
 }

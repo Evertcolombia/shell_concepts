@@ -14,7 +14,7 @@ int main(void)
 
 	while (1)
 	{
-		write(1, "MiShellada$ ", 13);
+		write(1, "Mameme_el_bolo_chulitos$ ", 25);
 		getLine = get_line();
         tokens = splitString(getLine);
         printCommand(tokens);
