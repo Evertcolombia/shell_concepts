@@ -1,0 +1,14 @@
+#include "shell.h"
+#include <stdio.h>
+
+int main (void)
+{
+        char **enviroment;
+
+        enviroment = environ;
+
+        while (*enviroment++)
+        {
+                printf("%s\n", (char *)enviroment);
+        } return (0);
+}
