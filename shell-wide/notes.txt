@@ -1,0 +1,8 @@
+cuando nos pasan el comando tenemos que tomarlo e ir por
+un indice de las path previamente delimitadas 
+
+entonces tenemos que concatenar esta con cada path y en la que
+sea correcta sera la line a a ejecutar
+
+
+si el usario envia la path entons ejecutamos esa si existe

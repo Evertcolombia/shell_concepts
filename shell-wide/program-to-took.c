@@ -5,18 +5,23 @@
 
 char **splitString(char *arguments)
 {
-	#define BUFSIZE 64
+	//#define BUFSIZE 64
 	#define _DELIM_ ":  \n"
 
 	/*init a bufsize and a position = 0*/
-	int bufer_size = BUFSIZE, position = 0;
+	int bufer_size = BUFSIZE, position = 0, arg_len = 1;
 
 	/*dobule pointer to create space in memory  fot the bufsize*/
 	char **tokens;
 	/*will store the tokens*/
 	char *token;
 
-	tokens = malloc (bufer_size * sizeof(char*));
+	/*puede usar el tamano de los argumaneto asi no tendria 
+	un bufffer pre definido siempre
+		_strlen(arguments) + 1 
+	*/
+	arg_len = _strlen(arguments 1);
+	tokens = malloc (arg_len * sizeof(char*));
 	/*if malloc files exit*/
 	if (tokens == NULL)
 		return(NULL);
