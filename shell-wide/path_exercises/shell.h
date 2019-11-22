@@ -14,6 +14,8 @@ extern char **environ;
 char **splitString(char *line);
 char *get_line(void);
 void printCommand(char **tokens);
+char *get_env(const char *path_name);
+
 
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
