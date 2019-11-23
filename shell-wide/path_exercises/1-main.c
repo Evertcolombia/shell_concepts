@@ -15,5 +15,6 @@ int main (void)
         printf("%s\n", tokens[i]);
         i++;
     }
+    free(tokens);
     return (0);
 }

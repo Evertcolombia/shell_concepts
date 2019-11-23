@@ -1,11 +1,8 @@
 #include "shell.h"
 
-/*#define BUFSIZE 64
-#define LSH_TOK_DELIM ":"*/
-
 char **splitString(char *arguments)
 {
-	//#define BUFSIZE 64
+	
 	#define _DELIM_ ":  \n \t"
 
 	/*init a bufsize and a position = 0*/
@@ -16,10 +13,6 @@ char **splitString(char *arguments)
 	/*will store the tokens*/
 	char *token;
 
-	/*puede usar el tamano de los argumaneto asi no tendria 
-	un bufffer pre definido siempre
-		_strlen(arguments) + 1 
-	*/
 	arg_len = _strlen(arguments);
 	tokens = malloc (arg_len * sizeof(char*));
 	/*if malloc files exit*/

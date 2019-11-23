@@ -1,26 +1,19 @@
 #include "shell.h"
 
-/*#define BUFSIZE 64
-#define LSH_TOK_DELIM ":"*/
-
 char **splitString(char *arguments)
 {
-	//#define BUFSIZE 64
-	#define _DELIM_ ":  \n"
+	
+	#define _DELIM_ ":  \n \t"
 
 	/*init a bufsize and a position = 0*/
-	int bufer_size = BUFSIZE, position = 0, arg_len = 1;
+	int position = 0, arg_len = 1; //bufer_size = BUFSIZE;
 
 	/*dobule pointer to create space in memory  fot the bufsize*/
 	char **tokens;
 	/*will store the tokens*/
 	char *token;
 
-	/*puede usar el tamano de los argumaneto asi no tendria 
-	un bufffer pre definido siempre
-		_strlen(arguments) + 1 
-	*/
-	arg_len = _strlen(arguments 1);
+	arg_len = _strlen(arguments);
 	tokens = malloc (arg_len * sizeof(char*));
 	/*if malloc files exit*/
 	if (tokens == NULL)
@@ -36,12 +29,12 @@ char **splitString(char *arguments)
 		position++;
 
 		/*if position is equal or major than bufsize size*/
-		if (position >= bufer_size)
+		if (position >= arg_len)
 		{
 				/*bufsize will recives more buufersize  + the lsh_tok_bufsize*/
-				bufer_size += BUFSIZE;
+				arg_len += arg_len;
 				/*reallocate the new tokens using realloc*/
-				tokens = realloc(tokens, bufer_size * sizeof(char *));
+				tokens = realloc(tokens, arg_len * sizeof(char *));
 
 				/*if tokens ends*/
 				if (tokens == NULL)
