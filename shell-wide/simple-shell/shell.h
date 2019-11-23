@@ -15,6 +15,8 @@ char **splitString(char *line);
 char *get_line(void);
 void printCommand(char **tokens);
 char *get_env(const char *path_name);
+char **splitStringPath(char *arguments, char **argvs);
+char *str_concat(char *s1, char *s2);
 
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);

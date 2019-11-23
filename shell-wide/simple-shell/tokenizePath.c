@@ -1,9 +1,9 @@
 #include "shell.h"
 
-char **splitString(char *arguments)
+char **splitStringPath(char *arguments, char **argvs)
 {
-	
-	char *delimitador = " \n:\t";
+
+        char *delimitador =  ":\n";
 
 	/*init a bufsize and a position = 0*/
 	int position = 0, arg_len = 1; //bufer_size = BUFSIZE;
@@ -25,7 +25,9 @@ char **splitString(char *arguments)
 	while (token != NULL)
 	{
 		/*token in position[position] will store what token in order brings*/
-		tokens[position] = token;
+		tokens[position] = str_concat(token, "/");
+		tokens[position] = str_concat(tokens[position], argvs[0]);
+
 		position++;
 
 		/*if position is equal or major than bufsize size*/

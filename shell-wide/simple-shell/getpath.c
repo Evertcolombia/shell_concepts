@@ -1,4 +1,4 @@
-#include <shell.h>
+#include "shell.h"
 
 char *get_env(const char *path_name)
 {
@@ -7,7 +7,7 @@ char *get_env(const char *path_name)
 	char *index;
 
 	/*path =  correct path*/
-	char *path;
+	int path;
         
 	/*enviroment from the header, from the environ
 	variable*/
@@ -31,7 +31,7 @@ char *get_env(const char *path_name)
 			*/
 			path = _strcmp(index, (char *) path_name);
 			if (path == 0)
-					return (strtok(NULL, delim));
+					return (strtok(NULL, delimitator));
 			enviroment++;
 
 			/*
