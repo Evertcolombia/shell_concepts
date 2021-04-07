@@ -2,10 +2,16 @@
 
 int main()
 {
-	char *tokens[10];
+	char *tokens[10], *new;
 	int i, len = 0;
 	bool state = true;
+	path_t *_path;
+	struct stat st;
 
+	_path = NULL;
+	_path = create_path_list();
+	/*print_listint_safe(_path);*/
+	
 	while (state)
 	{
 		i = 0;
@@ -22,6 +28,11 @@ int main()
 		tokens[i] = strtok(buffer, " ");
 		while(tokens[i] != NULL)
 			tokens[++i] = strtok(NULL, " ");
+		
+		if (stat(tokens[0], &st) == -1) {
+			new = search_path(tokens[0], _path);
+			tokens[0] = new;
+		}
 		fork_process(tokens, buffer);
 	}
 	return (0);

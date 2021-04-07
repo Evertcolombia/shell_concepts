@@ -18,3 +18,23 @@ void fork_process(char *tokens[], char *buffer)
 	waitpid(-1, &status, 0);
 	free(buffer);
 }
+
+path_t *create_path_list()
+{
+	char **copy = environ, *token = NULL;
+	path_t *head;
+
+	head = NULL;
+	for (; *copy != NULL; copy++) {
+		if (_strcmp(*copy, "PATH") == 0) {
+			token = strtok(*copy, "=");
+			while(token != NULL) {
+				token = strtok(NULL, ":");
+				if (token)
+					add_node(&head, token);
+			}
+		}
+	}
+
+	return (head);
+}
