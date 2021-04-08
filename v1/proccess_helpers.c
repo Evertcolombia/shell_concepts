@@ -16,6 +16,7 @@ void fork_process(char *tokens[], char *buffer)
 			perror("./shell");
 	}
 	waitpid(-1, &status, 0);
+	free(tokens[0]);
 	free(buffer);
 }
 

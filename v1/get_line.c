@@ -1,7 +1,6 @@
 #include "shell.h"
 
-
-char *get_line(void)
+char *get_line(path_t *head)
 {
 	size_t size = 0;
 
@@ -9,6 +8,7 @@ char *get_line(void)
 	if (getline(&buffer, &size, stdin) == EOF)
 	{
 		free(buffer);
+		free_listint_safe(&head);
 		exit(0);
 	}
 	return (buffer);

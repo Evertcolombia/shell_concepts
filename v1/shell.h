@@ -23,9 +23,15 @@ typedef struct path_s {
 	struct path_s *next;
 } path_t;
 
+typedef struct cmd_s {
+	char * cname;
+	int (*func)(char *token);
+} cmd_t;
+
+
 void handleCtrlc(int i);
 
-char *get_line(void);
+char *get_line(path_t *head);
 int validate_line(int len, char *buffer);
 
 void fork_process(char *tokens[], char *buffer);
@@ -40,5 +46,8 @@ char *_strcat(char *dest, char *src);
 path_t *add_node(path_t **head, char *pathname);
 size_t print_listint_safe(path_t *head);
 char *search_path(char *pathname, path_t *head);
+size_t free_listint_safe(path_t **h);
 
+
+void *_calloc(unsigned int nmemb, unsigned int size);
 #endif /* SHELL_H */

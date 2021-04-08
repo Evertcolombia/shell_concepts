@@ -12,9 +12,11 @@ int _strlen(char *s)
 char *_strcpy(char *dest, char *src)
 {
 	char *cp = dest;
-	printf("sisass\n");
-	while ((*dest++ = *src++))
-		printf("1\n");
+	
+	while ((*dest++ = *src++)) {
+		if (*src == '\0')
+			break;
+	}
 	dest = cp;
 	return (dest);
 }
@@ -37,12 +39,8 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	
-	while (str[a] != '\0')
-		a++;
-	a++;
-	
-	p = malloc(sizeof(char) * a);
+	a = _strlen(str);
+	p = malloc(sizeof(char) * a + 2);
 	if (p == NULL)
 		return (NULL);
 
@@ -58,7 +56,7 @@ char *_strcat(char *dest, char *src)
         for (; *dest != '\0'; dest++)
                 ;
         while ((*dest++ = *src++))
-                ;
-        dest = head;
+        	;
+	dest = head;
         return (dest);
 }

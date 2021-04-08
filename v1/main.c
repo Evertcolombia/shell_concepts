@@ -19,7 +19,7 @@ int main()
 			write(STDIN_FILENO, "#cisfun$ ", 9);
 		
 		signal(SIGINT, handleCtrlc);
-		buffer = get_line();
+		buffer = get_line(_path);
 		if (validate_line(_strlen(buffer), buffer) == 1)
 			continue;
 		len = _strlen(buffer);
@@ -31,6 +31,8 @@ int main()
 		
 		if (stat(tokens[0], &st) == -1) {
 			new = search_path(tokens[0], _path);
+			/*if (!new)
+				execute = search_in_optionals();*/
 			tokens[0] = new;
 		}
 		fork_process(tokens, buffer);
