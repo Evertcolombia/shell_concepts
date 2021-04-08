@@ -25,9 +25,11 @@ typedef struct path_s {
 
 typedef struct cmd_s {
 	char * cname;
-	int (*func)(char *token);
+	int (*func)(char *token, path_t *_path);
 } cmd_t;
-
+int (*search_in_optionals(char *cname))(char *cname, path_t *_path);
+int exit_helper(char *cname, path_t *_path);
+int unknown_helper(char *cname, path_t __attribute__((unused)) *path);
 
 void handleCtrlc(int i);
 

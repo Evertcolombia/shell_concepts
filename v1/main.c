@@ -7,6 +7,7 @@ int main()
 	bool state = true;
 	path_t *_path;
 	struct stat st;
+	int (*execute)(char *cname, path_t *_path);
 
 	_path = NULL;
 	_path = create_path_list();
@@ -31,9 +32,13 @@ int main()
 		
 		if (stat(tokens[0], &st) == -1) {
 			new = search_path(tokens[0], _path);
-			/*if (!new)
-				execute = search_in_optionals();*/
-			tokens[0] = new;
+			if (new)
+				tokens[0] = new;
+			else {
+				execute = search_in_optionals(tokens[0]);
+				if (execute != NULL)
+					execute(tokens[0], _path);
+			}
 		}
 		fork_process(tokens, buffer);
 	}
