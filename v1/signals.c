@@ -6,10 +6,6 @@
 void handleCtrlc(int i)
 {
 	(void) i;
-
-	/*write(STDOUT_FILENO, "#chanda$ ", 9);
-	fflush(stdout);*/
-	write(STDOUT_FILENO, "\n", 1);
-	free(buffer);
-	exit(1);
+	write(STDOUT_FILENO, "\nMiShell$ ", 10);
+	fflush(stdout);
 }

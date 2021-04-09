@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char *get_line(path_t *head)
+char *get_line(path_t *head, List *_list)
 {
 	size_t size = 0;
 
@@ -9,6 +9,7 @@ char *get_line(path_t *head)
 	{
 		free(buffer);
 		free_listint_safe(&head);
+		list_destroy(_list);
 		exit(0);
 	}
 	return (buffer);

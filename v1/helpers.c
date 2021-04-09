@@ -21,3 +21,17 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		*(memory + i) = 0;
 	return ((void *)memory);
 }
+
+/**
+ * *_memset - fills memory with a constant byte
+ * @s: array memory
+ * @b: constant byte
+ * @n: memory length
+ * Return: array *s
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	while (n--)
+		s[n] = b;
+	return (s);
+}
