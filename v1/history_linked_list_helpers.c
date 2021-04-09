@@ -73,6 +73,7 @@ int list_rem_next(List *list, hstr_t *element, void **data)
 		if (element->next == NULL)
 			list->tail = element;
 	}
+	free(*data);
 	free(old);
 	list->size--;
 	return(0);

@@ -2,7 +2,7 @@
 
 int main()
 {
-	char *tokens[10], *new;
+	char *tokens[10], *new = NULL;
 	int i, len = 0, ex = 0;
 	bool state = true;
 	path_t *_path;
@@ -16,7 +16,7 @@ int main()
 	
 	while (state)
 	{
-		i = 0;
+		i = 0, new = NULL;
 		if (isatty(STDIN_FILENO))
 			write(STDIN_FILENO, "#cisfun$ ", 9);
 		
@@ -26,7 +26,7 @@ int main()
 			continue;
 		len = _strlen(buffer);
 		buffer[len - 1] = '\0';
-		list_ins_next(&_list, _list.last_in, buffer, len);
+		list_ins_next(&_list, _list.last_in, _strdup(buffer), len);
 
 		tokens[i] = strtok(buffer, " ");
 		while(tokens[i] != NULL)
@@ -44,6 +44,9 @@ int main()
 		}
 		if (ex == 0)
 			fork_process(tokens, buffer);
+		if (new)
+			free(tokens[0]);
+		free(buffer);
 	}
 	return (0);
 }

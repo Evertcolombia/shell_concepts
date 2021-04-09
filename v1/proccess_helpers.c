@@ -5,6 +5,7 @@ void fork_process(char *tokens[], char *buffer)
 	int status;
 	pid_t child_pid;
 
+	(void) buffer;
 	child_pid = fork();
 	
 	if (child_pid < 0) {
@@ -16,8 +17,8 @@ void fork_process(char *tokens[], char *buffer)
 			perror("./shell");
 	}
 	waitpid(-1, &status, 0);
-	free(tokens[0]);
-	free(buffer);
+	/*free(tokens[0]);
+	free(buffer);*/
 }
 
 path_t *create_path_list()
